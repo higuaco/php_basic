@@ -18,6 +18,11 @@
   $email = $_POST['email'];
   $goiken = $_POST['goiken'];
 
+  $nickname=htmlspecialchars($nickname);
+  $email=htmlspecialchars($email);
+  $goiken=htmlspecialchars($goiken);
+  
+
   if($nickname=='') {
     echo 'ニックネームが入力されていません。<br />';
   }else{
@@ -47,9 +52,12 @@
       echo '</form>';
   }else {
     echo '<form method="post" action="thanks.php">';
+    echo '<input type="hidden" name="nickname" value="'.$nickname.'" >';
+    echo '<input type="hidden" name="email" value="'.$email.'" >';
+    echo '<input type="hidden" name="goiken" value="'.$goiken.'" >';
     echo '<input type="button" onclick="history.back()" value="戻る">';
-    echo '<input type="submit" value="戻る">';
-    echo '</form>'
+    echo '<input type="submit" value="OK">';
+    echo '</form>';
   }
 
 ?>
